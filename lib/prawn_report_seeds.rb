@@ -53,6 +53,7 @@ Dir.glob("#{Rails.root}/db/reports/*.yml").each do |f|
   #puts "Criado relatório: " + params["name"]
 end
 #puts "FIM"
-ReportTemplate.delete_all(:excluir => true)
+#ReportTemplate.delete_all(:excluir => true)
+ReportTemplate.destroy_all(:excluir => true)
 puts "finishing, closing, and going home"
 
