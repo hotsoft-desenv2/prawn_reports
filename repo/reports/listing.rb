@@ -9,7 +9,7 @@ require 'iconv'
 module PrawnReport
   class Listing < Report
 
-    #alias :super_new_page :new_page
+    alias :super_new_page :new_page
 
     def initialize(report_params = {})
       super(report_params)
