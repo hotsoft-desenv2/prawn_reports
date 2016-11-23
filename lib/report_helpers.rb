@@ -53,7 +53,7 @@ module PrawnReport
     def format(value, formatter, options = {})
       if !value.nil? && value != ''
         if (formatter == :currency)
-          value = value.round(2)
+          value = value.round(2) rescue sprintf('%.2f', value).to_f
           if value < 0
             '-'+((value.to_i*-1).to_s.reverse.gsub(/...(?=.)/,'\&.').reverse) + ',' + ('%02d' % ((value.abs * 100).round % 100))
           else
