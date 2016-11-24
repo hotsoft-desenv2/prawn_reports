@@ -3,8 +3,6 @@
 require 'yaml'
 
 
-#ReportTemplate.delete_all
-# Ticket_id #52283 - seed não exlcui mais relatórios ja existentes.
 ReportTemplate.update_all({:ac_filter_def_id => nil, :excluir => true})
 AcFilterOption.delete_all
 AcFilter.delete_all
@@ -22,10 +20,6 @@ puts "Iniciando importação dos reports"
 Dir.glob("#{Rails.root}/db/reports/*.yml").each do |f|
   puts "Parsing file: #{f}"
   params = YAML::load(File.open(f, 'r'))
-#  if params["filter_name"]
-#    f = AcFilterDef.find_by_name(params.delete("filter_name"))
-#    if f
-#      params["ac_filter_def_id"] = f.id
   r = ReportTemplate.find_by_name(params["name"])
   if r.nil?
     if params["filter_name"]
@@ -49,11 +43,7 @@ Dir.glob("#{Rails.root}/db/reports/*.yml").each do |f|
     puts "Atualizado relatório: " + params["name"]        
     end
   end
-  #ReportTemplate.create(params)
-  #puts "Criado relatório: " + params["name"]
 end
-#puts "FIM"
-#ReportTemplate.delete_all(:excluir => true)
 ReportTemplate.destroy_all(:excluir => true)
 puts "finishing, closing, and going home"
 
