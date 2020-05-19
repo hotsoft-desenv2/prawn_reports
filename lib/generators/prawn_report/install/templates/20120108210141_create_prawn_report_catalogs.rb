@@ -5,7 +5,7 @@ class CreatePrawnReportCatalogs < ActiveRecord::Migration
       t.string :report_type
       t.string :controller_name
       t.timestamps
-    end  
+    end
   end
 
   def self.down

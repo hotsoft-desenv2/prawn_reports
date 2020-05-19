@@ -21,7 +21,7 @@ module PrawnReport
   #    def initialize
   #      super
   #      @report_params = {
-  #        :report_name => 'Product Type Listing', 
+  #        :report_name => 'Product Type Listing',
   #        :field => 'name',
   #        :title => 'Name'
   #      }
@@ -41,7 +41,7 @@ module PrawnReport
   #    def initialize
   #      super
   #      @report_params = {
-  #        :report_name => 'People Listing', 
+  #        :report_name => 'People Listing',
   #        :columns => [
   #          {:name => 'name', :title => 'Name', :width => 200},
   #          {:name => 'age', :title => 'Age', :width => 30},
@@ -65,7 +65,7 @@ module PrawnReport
   class SimpleListing < Listing
 
     attr_reader :grouping_info
-    
+
     def initialize(report_params = {})
       super(report_params)
       @grouping_info = {:last_group_value => nil,

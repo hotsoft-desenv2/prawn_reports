@@ -5,7 +5,7 @@ module PrawnReport
       dirname = File.expand_path('../templates/', __FILE__)
       Dir.glob(File.join(dirname, '*.rb')).each do |mig|
         destfilename = Rails.root.join('db', 'migrate', Pathname.new(mig).basename)
-        unless File.exists?(destfilename)
+        unless File.exist?(destfilename)
           puts "Imported migration #{Pathname.new(mig).basename}"
           FileUtils.copy(mig, destfilename)
         end
