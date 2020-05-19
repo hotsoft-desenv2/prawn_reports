@@ -13,10 +13,10 @@ class AddFilterDefs < ActiveRecord::Migration
       t.boolean :query_user
       t.string :data_type
       t.string :label
-      t.string :filled_criteria      
+      t.string :filled_criteria
       t.string :unfilled_criteria
       t.string :target_model
-      t.string :target_field      
+      t.string :target_field
     end
 
     create_table :ac_filter_options do |t|
@@ -24,7 +24,7 @@ class AddFilterDefs < ActiveRecord::Migration
       t.string :label
       t.string :value
     end
-    
+
   end
 
   def self.down

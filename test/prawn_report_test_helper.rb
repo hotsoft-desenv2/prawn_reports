@@ -10,7 +10,7 @@ class ReportClassTestHelper
     @params = {}
     @today_is = nil
   end
-  
+
   def with_initializers(initializers)
     @initializers = initializers
     self
@@ -20,19 +20,19 @@ class ReportClassTestHelper
     @params = params
     self
   end
-  
+
   def with_yaml(file_path)
     @data = YAML::load(File.open(file_path))
     self
   end
-  
+
   def assuming_today_as(date_str)
     @today_is = Date.parse(date_str)
     self
   end
-  
+
   def should_result_in_pdf(file_path)
-    begin
+
       expected_content = File.open(file_path, 'r').read
       f = Tempfile.new('prawn_report.pdf')
       if @initializers != {}
@@ -60,9 +60,9 @@ class ReportClassTestHelper
     rescue => e
       print 'E'
       return [false, e.to_s + '\n\t' + e.backtrace.join("\n\t")]
-    end
+
   end
-  
+
 end
 
 
@@ -79,7 +79,7 @@ def test_reports(test_name, &block)
   test_results.each { |tr| error_count += 1 unless tr[0] }
   puts
   if error_count > 0
-    puts "#{test_results.count.to_s} tests, #{error_count.to_s} not passing"
+    puts "#{test_results.count} tests, #{error_count} not passing"
   else
     puts "All tests pass. Go get some coffe!"
   end
